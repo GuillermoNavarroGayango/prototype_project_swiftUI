@@ -18,9 +18,14 @@ struct ContentView: View {
             Text("Canales recomendados")
                 .foregroundColor(.gray)
             HStack {
-                Rectangle()
+                Image("youtube")
+                /*.resizable(resizingMode: .tile)*/
+                /*Esto sirve para crear un patrón con una imagen, descomentar y comentar el código siguiente para ver*/
+                    .renderingMode(.template)
+                    .resizable()
+                    .scaledToFit()
+                    .frame(width: 96, height: 68)
                     .foregroundColor(.blue)
-                    .frame(width: 118, height: 68)
                 VStack(alignment: .leading)  {
                     HStack {
                         Circle()
