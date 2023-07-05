@@ -9,13 +9,34 @@ import SwiftUI
 
 struct ContentView: View {
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundColor(.accentColor)
-            Text("Hello, world!")
+        VStack(alignment: .leading, spacing: 8) {
+            VStack {
+                Text("Siguiendo")
+                    .font(.largeTitle)
+                    .bold()
+            }
+            Text("Canales recomendados")
+                .foregroundColor(.gray)
+            HStack {
+                Rectangle()
+                    .foregroundColor(.blue)
+                    .frame(width: 118, height: 68)
+                VStack(alignment: .leading)  {
+                    HStack {
+                        Circle()
+                            .frame(width: 18, height: 18)
+                            .foregroundColor(.blue)
+                        Text("username")
+                            .font(.headline)
+                    }
+                    Text("streaming de programación...")
+                        .foregroundColor(.gray)
+                    Text("Solo hablando")
+                        .foregroundColor(.gray)
+                }
+
+            }
         }
-        .padding()
     }
 }
 
