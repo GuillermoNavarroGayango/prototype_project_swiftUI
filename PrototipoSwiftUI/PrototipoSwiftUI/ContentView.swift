@@ -28,9 +28,13 @@ struct ContentView: View {
                     .foregroundColor(.blue)
                 VStack(alignment: .leading)  {
                     HStack {
-                        Circle()
-                            .frame(width: 18, height: 18)
-                            .foregroundColor(.blue)
+                        Image(systemName: "person.crop.circle")
+                        /*.renderingMode(.original)*/
+                        /*Si el icono usado tiene un color por defecto podremos usar el código comentado para ello*/
+                            .resizable()
+                            .scaledToFit()
+                            .frame(width: 24, height: 24)
+                            .foregroundColor(.green)
                         Text("username")
                             .font(.headline)
                     }
