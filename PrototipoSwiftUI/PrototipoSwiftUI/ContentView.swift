@@ -10,6 +10,11 @@ import SwiftUI
 struct ContentView: View {
 
     @State var counter: Int = 0
+    @State var items = Array(1...100)
+
+    private var lastItem: Int? {
+        items.last
+    }
 
     var body: some View {
         VStack(alignment: .leading) {
@@ -63,6 +68,36 @@ struct ContentView: View {
                 .cornerRadius(15)
             }
         }
+        List(items, id: \.self) { item in
+            Label("Video: \(item.description)",
+                  image: "youtube")
+            .onAppear {
+                updateItems(item: item)
+            }
+            .listRowSeparator(.hidden)
+            Line()
+                .stroke(style: .init(dash: [6]))
+                .foregroundStyle(.black)
+                .frame(height: 1)
+        }
+        .scrollContentBackground(.hidden)
+        .background(.blue.gradient.opacity(0.5))
+    }
+
+    private func updateItems(item: Int) {
+        if let lastItem, lastItem == item {
+            items += Array(lastItem...lastItem + 100)
+        }
+    }
+}
+
+struct Line: Shape {
+    func path(in rect: CGRect) -> Path {
+        var path = Path()
+        path.move(to: CGPoint(x: 0, y: 0))
+        path.addLine(to: CGPoint(x: rect.width, y: 0))
+
+        return path
     }
 }
 
